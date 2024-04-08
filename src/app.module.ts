@@ -4,10 +4,19 @@ import { AuthModule } from './auth/auth.module';
 import { PickModule } from './pick/pick.module';
 import { ParticipantModule } from './participant/participant.module';
 import { MatchModule } from './match/match.module';
+import { ConfigModule } from '@nestjs/config';
+import { PrismaService } from './prisma.service';
 
 @Module({
-  imports: [UserModule, AuthModule, PickModule, ParticipantModule, MatchModule],
+  imports: [
+    UserModule,
+    AuthModule,
+    PickModule,
+    ParticipantModule,
+    MatchModule,
+    ConfigModule.forRoot({ isGlobal: true }),
+  ],
   controllers: [],
-  providers: [],
+  providers: [PrismaService],
 })
 export class AppModule {}

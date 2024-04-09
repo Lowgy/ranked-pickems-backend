@@ -19,6 +19,7 @@ model User {
   uuid String? @unique
   accessToken String @unique
   refreshToken String @unique
+  profileImage String
   refreshTokenExpiry Int
   createdAt DateTime @default(now())
   picks Pick[]

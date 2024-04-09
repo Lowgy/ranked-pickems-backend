@@ -26,6 +26,7 @@ export class AuthController {
       accessToken: tokenResponse.data.access_token,
       refreshToken: tokenResponse.data.refresh_token,
       refreshTokenExpiry: tokenResponse.data.expires_in,
+      profileImage: twitchDetails.data.data[0].profile_image_url,
     };
     const user = await this.authService.validateUser(userDetails);
     console.log('User: ', user);

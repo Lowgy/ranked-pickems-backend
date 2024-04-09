@@ -21,6 +21,7 @@ export class UserService {
           accessToken: profile.accessToken,
           refreshToken: profile.refreshToken,
           refreshTokenExpiry: profile.refreshTokenExpiry,
+          profileImage: profile.profileImage,
         },
       });
       return newUser;

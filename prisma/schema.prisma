@@ -20,7 +20,7 @@ model User {
   accessToken String @unique
   refreshToken String @unique
   profileImage String
-  refreshTokenExpiry Int
+  refreshTokenExpiry DateTime
   createdAt DateTime @default(now())
   picks Pick[]
 }

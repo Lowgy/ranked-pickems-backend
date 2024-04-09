@@ -21,11 +21,15 @@ export class AuthController {
     const twitchDetails = await this.authService.getUserDetails(
       tokenResponse.data.access_token,
     );
+    const expiration = new Date();
+    expiration.setTime(
+      tokenResponse.data.expires_in * 1000 + expiration.getTime(),
+    );
     const userDetails = {
       username: twitchDetails.data.data[0].display_name,
       accessToken: tokenResponse.data.access_token,
       refreshToken: tokenResponse.data.refresh_token,
-      refreshTokenExpiry: tokenResponse.data.expires_in,
+      refreshTokenExpiry: expiration,
       profileImage: twitchDetails.data.data[0].profile_image_url,
     };
     const user = await this.authService.validateUser(userDetails);
